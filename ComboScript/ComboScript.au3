@@ -10,6 +10,7 @@ _Singleton("D3AntiIdle")
 Global $SwitchGearButton = "{F1}"
 Global $RequestInviteButton = "{F2}"
 Global $AntiIdleButton = "{F3}"
+Global $Spam1234Button = "{3}"
 Global $SettingsFile = IniRead("LocalSetup.ini", "FileConfig", "SettingsFile", "DefaultSettings.ini")
 
 ;Don't mess with values below
@@ -32,15 +33,37 @@ ReadSettings()
 while 1
 	if WinActive($win_title) then
 		HotKeySet($SwitchGearButton, "SwitchGear")
-		HotKeySet($AntiIdleButton, "AntiIdle")
-		HotKeySet($RequestInviteButton, "RequestInvite")
+		;HotKeySet($AntiIdleButton, "AntiIdle")
+		;HotKeySet($RequestInviteButton, "RequestInvite")
+		;HotKeySet($Spam1234Button, "Spam1234")
+		
+		;If _IsPressed(01) Then
+		If _IsPressed(33) Then
+			Spam1234()
+		endif
+		
 	else ;when window is not active, disable all hotkeys
 		HotKeySet($SwitchGearButton)
-		HotKeySet($AntiIdleButton)
-		HotKeySet($RequestInviteButton)
+		;HotKeySet($AntiIdleButton)
+		;HotKeySet($RequestInviteButton)
+		;HotKeySet($Spam1234Button)
 	endif
-	Sleep(200)
+	;Sleep(1000)
+	sleep(Random(250,325, 1))
 wend
+
+func Spam1234()	
+	if WinActive($win_title) AND NOT $Paused Then
+		ControlSend($win_title, "", "", "{1}")
+		;sleep(Random(25,45, 1))
+		ControlSend($win_title, "", "", "{2}")
+		;sleep(Random(25,45, 1))
+		ControlSend($win_title, "", "", "{3}")
+		;sleep(Random(25,45, 1))
+		ControlSend($win_title, "", "", "{4}")
+	endif
+
+endfunc
 
 #include "ComboIncludes/AntiIdle.au3"
 #include "ComboIncludes/RequestInvite.au3"
