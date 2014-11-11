@@ -10,7 +10,7 @@ Global $monkMantraMillisecCD = 2800
 
 func DoZdpsMonk()
 	Local $timerDiff  =  TimerDiff($monkMantraTimer)
-	MouseClick("left")	
+	DoLeftClick()
 	
 	;check mantra CD timer
 	If $timerDiff >= $monkMantraMillisecCD Then
@@ -20,9 +20,9 @@ func DoZdpsMonk()
 	
 	; 2/3/4
 	ControlSend($win_title, "", "", $MonkSerenityButton)		
-	MouseClick("left")
+	DoLeftClick()
 	ControlSend($win_title, "", "", $MonkEpiphanyButton)
-	MouseClick("left")
+	DoLeftClick()
 	ControlSend($win_title, "", "", $MonkInnerSancButton)
-	MouseClick("left")
+	DoLeftClick()
 endfunc

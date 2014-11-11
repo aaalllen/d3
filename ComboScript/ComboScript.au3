@@ -75,4 +75,5 @@ endfunc
 
 #include "ComboIncludes/AntiIdle.au3"
 #include "ComboIncludes/RequestInvite.au3"
+#include "ComboIncludes/Clicking.au3"
 #include "ComboIncludes/EndingIncludes.au3"
