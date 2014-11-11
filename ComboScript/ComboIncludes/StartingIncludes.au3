@@ -20,6 +20,7 @@ Global $sleepTimeForCoordDetection = 2000 ;set the amount of time you want to wa
 ; Pause for chatting
 Global $EnterButton = "{Enter}"
 Global $ReplyButton = "{r}"
+Global $ChatEscButton = "{ESC}"
 
 ; do not include these in the SetHotkeys() method
 HotKeySet($EnterButton, "EnterTogglePause")

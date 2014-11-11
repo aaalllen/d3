@@ -8,6 +8,7 @@ func TogglePause()
 		;HotKeySet($RequestInviteButton)
 		HotKeySet($EnterButton)
 		HotKeySet($ReplyButton)
+		
 		ToolTip($title & ' is Paused. Hit ' & $PauseButton & ' to resume.',0,0)
 	wend
 	HotKeySet($SwitchGearButton, "SwitchGear")
@@ -15,6 +16,7 @@ func TogglePause()
 	;HotKeySet($RequestInviteButton, "RequestInvite")
 	HotKeySet($EnterButton, "EnterTogglePause")
 	HotKeySet($ReplyButton, "ReplyTogglePause")
+	
 	ToolTip("")
 endfunc
  
@@ -23,6 +25,7 @@ func EnterTogglePause()
 	;have to disable the hotkey to send it
 	HotKeySet($EnterButton)
 	Send($EnterButton)
+	Send($CloseAllButton)
 	HotKeySet($EnterButton, "EnterTogglePause")
 
 	TypingPause()
@@ -37,13 +40,24 @@ func TypingPause()
 			sleep(100)
 			HotKeySet($PauseButton)
 			HotKeySet($ReplyButton)
+			HotKeySet($ChatEscButton, "ClearChatWithEsc")
+			
 			ToolTip($title & ' is paused for chat. Hit ' & $EnterButton & ' to resume.',0,0)
 		wend
 
 		HotKeySet($PauseButton, "TogglePause")
 		HotKeySet($ReplyButton, "ReplyTogglePause")
+		HotKeySet($ChatEscButton)
 		ToolTip("")
 	endif
+endfunc
+
+func ClearChatWithEsc()
+	HotKeySet($ChatEscButton)
+	Send($ChatEscButton)
+	HotKeySet($ChatEscButton, "ClearChatWithEsc")
+	
+	TypingPause()
 endfunc
 
 func ReplyTogglePause()

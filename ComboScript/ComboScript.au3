@@ -16,7 +16,7 @@ ReadSettings()
 ;------------------------------------------------------------------------------
 #include "ClassIncludes/ClassIncludes.au3"
 
-Global $SpamKey = 33 ; Keyboard 3 (Not Numpad)
+Global $SpamKeyPress = 33 ; Keyboard 3 (Not Numpad)
 
 ; find the first true play style
 Global $IsPonySader = true
@@ -29,7 +29,7 @@ while 1
 	if WinActive($win_title) then
 		SetHotkeys()
 		
-		If NOT $Paused AND _IsPressed($SpamKey) Then
+		If NOT $Paused AND _IsPressed($SpamKeyPress) Then
 			If $IsPonySader == true Then
 				DoPonySader()	
 			ElseIf $IsZdpsMonk == true Then
