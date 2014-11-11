@@ -7,8 +7,12 @@ _Singleton("D3AntiIdle")
 ;------------------------------------------------------------------------------
 ; Set Class Spam Types (holding down 3)
 ;------------------------------------------------------------------------------
+#include "ClassIncludes/Crusader.au3"
+#include "ClassIncludes/Monk.au3"
 Global $SpamKey = 33 ; Keyboard 3 (Not Numpad)
-Global $IsPonySader = false
+
+; find the first true play style
+Global $IsPonySader = true
 Global $IsZdpsMonk = true
 
 ;------------------------------------------------------------------------------
@@ -29,7 +33,6 @@ Global $switchingGear = false
 Global $AntiIdle = false
 Global $SelfSpam = false
 Global $sleepTimeForCoordDetection = 2000 ;set the amount of time you want to wait during MF setup between each item coordinate
-Global $lastTimer = TimerInit()
 
 #include "ComboIncludes/ReadSettings.au3"
 ReadSettings()
@@ -43,7 +46,7 @@ while 1
 	if WinActive($win_title) then
 		SetHotkeys()
 		
-		If _IsPressed($SpamKey) Then
+		If NOT $Paused AND _IsPressed($SpamKey) Then
 			If $IsPonySader == true Then
 				DoPonySader()	
 			ElseIf $IsZdpsMonk == true Then
@@ -69,37 +72,6 @@ func ClearHotkeys()
 	;HotKeySet($RequestInviteButton)
 endfunc
 
-func DoPonySader()	
-	if WinActive($win_title) AND NOT $Paused Then
-		MouseClick("left")	
-		ControlSend($win_title, "", "", "{1}")
-		ControlSend($win_title, "", "", "{2}")		
-		MouseClick("left")		
-		ControlSend($win_title, "", "", "{3}")
-		ControlSend($win_title, "", "", "{4}")
-	endif
-endfunc
-
-func DoZdpsMonk()
-	Local $mantraMillisecCD = 2800
-	Local $timerDiff  =  TimerDiff($lastTimer)
-	if WinActive($win_title) AND NOT $Paused Then
-		MouseClick("left")	
-		
-		;check mantra CD timer
-		If $timerDiff >= $mantraMillisecCD Then
-			$lastTimer = TimerInit()
-			ControlSend($win_title, "", "", "{1}")
-		EndIf
-		
-		ControlSend($win_title, "", "", "{2}")		
-		MouseClick("left")		
-		ControlSend($win_title, "", "", "{3}")
-		MouseClick("left")	
-		ControlSend($win_title, "", "", "{4}")
-		MouseClick("left")	
-	endif
-endfunc
 
 #include "ComboIncludes/AntiIdle.au3"
 #include "ComboIncludes/RequestInvite.au3"
