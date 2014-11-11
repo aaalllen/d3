@@ -1,5 +1,3 @@
-Global $monkMantraTimer = TimerInit()
-
 ; LeftClick = crippling wave
 ; RightClick = cyclone strike
 Global $MonkMantraButton = "{1}"
@@ -7,6 +5,8 @@ Global $MonkSerenityButton = "{2}"
 Global $MonkEpiphanyButton = "{3}"
 Global $MonkInnerSancButton = "{4}"
 Global $monkMantraMillisecCD = 2800
+
+Global $monkMantraTimer = TimerInit()
 
 func DoZdpsMonk()
 	Local $timerDiff  =  TimerDiff($monkMantraTimer)
