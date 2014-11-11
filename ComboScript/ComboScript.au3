@@ -5,6 +5,13 @@
 _Singleton("D3AntiIdle")
 
 ;------------------------------------------------------------------------------
+; Set the variables and keybindings
+;------------------------------------------------------------------------------
+#include "ComboIncludes/StartingIncludes.au3"
+#include "ComboIncludes/ReadSettings.au3"
+ReadSettings()
+
+;------------------------------------------------------------------------------
 ; Set Class Spam Types (holding down 3)
 ;------------------------------------------------------------------------------
 #include "ClassIncludes/ClassIncludes.au3"
@@ -14,13 +21,6 @@ Global $SpamKey = 33 ; Keyboard 3 (Not Numpad)
 ; find the first true play style
 Global $IsPonySader = true
 Global $IsZdpsMonk = true
-
-;------------------------------------------------------------------------------
-; Set the variables and keybindings
-;------------------------------------------------------------------------------
-#include "ComboIncludes/StartingIncludes.au3"
-#include "ComboIncludes/ReadSettings.au3"
-ReadSettings()
 
 ;------------------------------------------------------------------------------
 ; Main loop - for keycodes check bottom of script
