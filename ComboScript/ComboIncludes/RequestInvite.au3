@@ -11,3 +11,12 @@ func RequestInvite()
 	endif
 
 endfunc
+
+func CheckMouseCoord()	
+	if WinActive($win_title) AND NOT $Paused Then
+		; use this section to help get the right coordinates
+		$jPos = MouseGetPos()
+		MsgBox(0, "Mouse x,y:", $jPos[0] & "," & $jPos[1])
+	endif
+
+endfunc
