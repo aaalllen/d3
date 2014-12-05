@@ -3,21 +3,29 @@ func TogglePause()
 	while $Paused
 		sleep(100)
 		;disable switch MF gear button and setup keys
-		HotKeySet($SwitchGearButton)
-		;HotKeySet($SetupButton)
-		;HotKeySet($RequestInviteButton)
-		HotKeySet($EnterButton)
-		HotKeySet($ReplyButton)
+		ChatToggleDisableHotKeys()
 		
 		ToolTip($title & ' is Paused. Hit ' & $PauseButton & ' to resume.',0,0)
 	wend
+	ChatToggleEnableHotKeys()
+	
+	ToolTip("")
+endfunc
+
+func ChatToggleEnableHotKeys()
 	HotKeySet($SwitchGearButton, "SwitchGear")
 	HotKeySet($AntiIdleButton, "AntiIdle")
 	;HotKeySet($RequestInviteButton, "RequestInvite")
 	HotKeySet($EnterButton, "EnterTogglePause")
 	HotKeySet($ReplyButton, "ReplyTogglePause")
-	
-	ToolTip("")
+endfunc
+
+func ChatToggleDisableHotKeys()
+	HotKeySet($SwitchGearButton)
+	;HotKeySet($SetupButton)
+	;HotKeySet($RequestInviteButton)
+	HotKeySet($EnterButton)
+	HotKeySet($ReplyButton)
 endfunc
  
  

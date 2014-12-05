@@ -39,4 +39,5 @@ func ClearHotkeys()
 	HotKeySet($SwitchGearButton)
 	HotKeySet($AntiIdleButton)
 	;HotKeySet($RequestInviteButton)
+	ChatToggleDisableHotKeys()
 endfunc
