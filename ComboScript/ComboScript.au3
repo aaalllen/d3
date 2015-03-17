@@ -19,6 +19,7 @@ ReadSettings()
 Global $SpamKeyPress = 33 ; Keyboard 3 (Not Numpad)
 
 ; find the first true play style
+Global $IsCondemnSader = true
 Global $IsPonySader = true
 Global $IsZdpsMonk = true
 
@@ -30,7 +31,9 @@ while 1
 		SetHotkeys()
 		
 		If NOT $Paused AND _IsPressed($SpamKeyPress) Then
-			If $IsPonySader == true Then
+			If $IsCondemnSader == true Then
+				DoCondemnSader()
+			ElseIf $IsPonySader == true Then
 				DoPonySader()	
 			ElseIf $IsZdpsMonk == true Then
 				DoZdpsMonk()
