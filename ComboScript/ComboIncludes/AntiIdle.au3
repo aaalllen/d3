@@ -1,3 +1,5 @@
+#include-once
+
 func AntiIdle()
 	$AntiIdle = NOT $AntiIdle	
 	

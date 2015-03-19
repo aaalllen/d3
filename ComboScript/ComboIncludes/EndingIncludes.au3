@@ -1,3 +1,5 @@
+#include-once
+
 #include "Clicking.au3"
 #include "ChatPause.au3"
 #include "AntiIdle.au3"

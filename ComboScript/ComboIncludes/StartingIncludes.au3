@@ -1,3 +1,5 @@
+#include-once
+
 ;------------------------------------------------------------------------------
 ; Globals - These are defaults but will get overwritten by the settings file
 ;------------------------------------------------------------------------------
@@ -22,10 +24,6 @@ Global $EnterButton = "{Enter}"
 Global $ReplyButton = "{r}"
 Global $ChatEscButton = "{ESC}"
 
-; do not include these in the SetHotkeys() method
-HotKeySet($EnterButton, "EnterTogglePause")
-HotKeySet($ReplyButton, "ReplyTogglePause")
-
 ;------------------------------------------------------------------------------
 ; Hotkeys
 ;------------------------------------------------------------------------------
@@ -33,6 +31,8 @@ func SetHotkeys()
 	HotKeySet($SwitchGearButton, "SwitchGear")
 	HotKeySet($AntiIdleButton, "AntiIdle")
 	;HotKeySet($RequestInviteButton, "RequestInvite")
+		
+	ChatToggleEnableHotKeys()
 endfunc
 
 func ClearHotkeys()

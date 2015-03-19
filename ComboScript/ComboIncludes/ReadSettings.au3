@@ -1,3 +1,5 @@
+#include-once
+
 ;---------------------------------------
 ; Values read from the Settings.ini file
 ;---------------------------------------

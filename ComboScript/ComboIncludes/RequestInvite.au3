@@ -1,3 +1,5 @@
+#include-once
+
 func RequestInvite()	
 	if WinActive($win_title) AND NOT $Paused Then
 		;; Hover over the player to request an invite from and press the hotkey

@@ -1,3 +1,5 @@
+#include-once
+
 ;------------------------------------------------------------------------------
 ; Gear Switching
 ;	MagicFind references as we used to switch gear right before killing elites	

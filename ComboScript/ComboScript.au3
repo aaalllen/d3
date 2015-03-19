@@ -17,11 +17,13 @@ ReadSettings()
 #include "ClassIncludes/ClassIncludes.au3"
 
 Global $SpamKeyPress = 33 ; Keyboard 3 (Not Numpad)
+Global $StopSpamKeyPress = 34;
 
 ; find the first true play style
 Global $IsCondemnSader = true
 Global $IsPonySader = true
 Global $IsZdpsMonk = true
+Global $AutoSpam = false
 
 ;------------------------------------------------------------------------------
 ; Main loop - for keycodes check bottom of script
@@ -30,14 +32,19 @@ while 1
 	if WinActive($win_title) then
 		SetHotkeys()
 		
-		If NOT $Paused AND _IsPressed($SpamKeyPress) Then
-			If $IsCondemnSader == true Then
+		If NOT $Paused AND (_IsPressed($SpamKeyPress) Or $AutoSpam == true) Then
+			If $IsCondemnSader == true  Then
 				DoCondemnSader()
+				$AutoSpam = true
 			ElseIf $IsPonySader == true Then
 				DoPonySader()	
 			ElseIf $IsZdpsMonk == true Then
 				DoZdpsMonk()
 			EndIf
+		endif
+		
+		If NOT $Paused AND _IsPressed($StopSpamKeyPress) Then
+			$AutoSpam = false
 		endif
 		
 	else ;when window is not active, disable all hotkeys

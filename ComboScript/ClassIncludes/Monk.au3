@@ -1,3 +1,5 @@
+#include-once
+
 ; LeftClick = crippling wave
 ; RightClick = cyclone strike
 Global $MonkMantraButton = "{1}"

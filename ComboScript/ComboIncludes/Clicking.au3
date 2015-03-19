@@ -1,3 +1,5 @@
+#include-once
+
 func DoLeftClick()
 	DoClick("left")
 endfunc

@@ -1,4 +1,7 @@
+#include-once
+
 func TogglePause()
+	;MsgBox(0, 'info','TogglePause')
 	$Paused = NOT $Paused
 	while $Paused
 		sleep(100)
@@ -13,6 +16,7 @@ func TogglePause()
 endfunc
 
 func ChatToggleEnableHotKeys()
+	;MsgBox(0, 'info','ChatToggleEnableHotKeys')
 	HotKeySet($SwitchGearButton, "SwitchGear")
 	HotKeySet($AntiIdleButton, "AntiIdle")
 	;HotKeySet($RequestInviteButton, "RequestInvite")
@@ -21,6 +25,7 @@ func ChatToggleEnableHotKeys()
 endfunc
 
 func ChatToggleDisableHotKeys()
+	;MsgBox(0, 'info','ChatToggleDisableHotKeys')
 	HotKeySet($SwitchGearButton)
 	;HotKeySet($SetupButton)
 	;HotKeySet($RequestInviteButton)
@@ -30,6 +35,7 @@ endfunc
  
  
 func EnterTogglePause()
+	;MsgBox(0, 'info','EnterTogglePause')
 	;have to disable the hotkey to send it
 	HotKeySet($EnterButton)
 	Send($EnterButton)
@@ -40,6 +46,7 @@ func EnterTogglePause()
 endfunc
 
 func TypingPause()
+	;MsgBox(0, 'info','TypingPause')
 	if WinActive($win_title) then
 		$Paused = NOT $Paused
 
@@ -61,6 +68,7 @@ func TypingPause()
 endfunc
 
 func ClearChatWithEsc()
+	;MsgBox(0, 'info','ClearChatWithEsc')
 	HotKeySet($ChatEscButton)
 	Send($ChatEscButton)
 	HotKeySet($ChatEscButton, "ClearChatWithEsc")
@@ -69,6 +77,7 @@ func ClearChatWithEsc()
 endfunc
 
 func ReplyTogglePause()
+	;MsgBox(0, 'info','ReplyTogglePause')
 	;have to disable the hotkey to send it
 	HotKeySet($ReplyButton)
 	Send($ReplyButton)
