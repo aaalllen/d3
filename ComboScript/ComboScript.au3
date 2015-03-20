@@ -17,7 +17,7 @@ ReadSettings()
 #include "ClassIncludes/ClassIncludes.au3"
 
 Global $SpamKeyPress = 33 ; Keyboard 3 (Not Numpad)
-Global $StopSpamKeyPress = 34;
+Global $StopSpamKeyPress = 34; Keyboard 4 (Not Numpad)
 
 ; find the first true play style
 Global $IsCondemnSader = true
@@ -31,11 +31,14 @@ Global $AutoSpam = false
 while 1
 	if WinActive($win_title) then
 		SetHotkeys()
+		if NOT $Paused Then
+			ChatToggleEnableHotKeys()
+		endif
 		
 		If NOT $Paused AND (_IsPressed($SpamKeyPress) Or $AutoSpam == true) Then
-			If $IsCondemnSader == true  Then
-				DoCondemnSader()
+			If $IsCondemnSader == true  Then				
 				$AutoSpam = true
+				DoCondemnSader()				
 			ElseIf $IsPonySader == true Then
 				DoPonySader()	
 			ElseIf $IsZdpsMonk == true Then

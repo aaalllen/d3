@@ -22,15 +22,18 @@ func ChatToggleEnableHotKeys()
 	;HotKeySet($RequestInviteButton, "RequestInvite")
 	HotKeySet($EnterButton, "EnterTogglePause")
 	HotKeySet($ReplyButton, "ReplyTogglePause")
+	HotKeySet($MapButton, "MapTogglePause")
 endfunc
 
 func ChatToggleDisableHotKeys()
 	;MsgBox(0, 'info','ChatToggleDisableHotKeys')
 	HotKeySet($SwitchGearButton)
+	HotKeySet($AntiIdleButton)
 	;HotKeySet($SetupButton)
 	;HotKeySet($RequestInviteButton)
 	HotKeySet($EnterButton)
 	HotKeySet($ReplyButton)
+	HotKeySet($MapButton)
 endfunc
  
  
@@ -39,8 +42,18 @@ func EnterTogglePause()
 	;have to disable the hotkey to send it
 	HotKeySet($EnterButton)
 	Send($EnterButton)
-	Send($CloseAllButton)
+	;Send($CloseAllButton)
 	HotKeySet($EnterButton, "EnterTogglePause")
+
+	TypingPause()
+endfunc
+
+func MapTogglePause()
+	;MsgBox(0, 'info','MapTogglePause')
+	;have to disable the hotkey to send it
+	HotKeySet($MapButton)
+	Send($MapButton)
+	HotKeySet($MapButton, "MapTogglePause")
 
 	TypingPause()
 endfunc
