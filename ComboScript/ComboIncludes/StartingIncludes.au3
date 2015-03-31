@@ -5,6 +5,7 @@ Global $baseTickMillisecond = 150
 Global $SwitchGearButton = "{F1}"
 Global $RequestInviteButton = "{F2}" ; no longer need this, so disabled
 Global $AntiIdleButton = "{F3}"
+Global $ReadSettingsButton = "{F4}"
 Global $PauseButton = "{F5}"
 Global $SettingsFile = IniRead("LocalSetup.ini", "FileConfig", "SettingsFile", "DefaultSettings.ini")
 
@@ -35,6 +36,7 @@ func SetHotkeys()
 	HotKeySet($SwitchGearButton, "SwitchGear")
 	HotKeySet($AntiIdleButton, "AntiIdle")
 	;HotKeySet($RequestInviteButton, "RequestInvite")
+	HotKeySet($ReadSettingsButton, "ReadSettings")	
 endfunc
 
 func ClearHotkeys()
@@ -42,4 +44,5 @@ func ClearHotkeys()
 	HotKeySet($AntiIdleButton)
 	;HotKeySet($RequestInviteButton)
 	ChatToggleDisableHotKeys()
+	HotKeySet($ReadSettingsButton)
 endfunc

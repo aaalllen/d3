@@ -3,7 +3,7 @@
 ;Condemnsader
 ;	LeftClick = zeal
 ;	RightClick = iron skin steed charge
-Global $CondemnWithOutSteedCharge = true
+Global $CondemnWithIronSkin = "1"
 Global $CondemnSaderAkChamp = "{1}"
 Global $CondemnSaderCondemn = "{2}"
 Global $CondemnSaderLaw = "{3}"
@@ -48,7 +48,7 @@ func DoCondemnProvoke()
 endfunc
 
 func DoCondemnAuxSkill()
-	If $CondemnWithOutSteedCharge == true Then
+	If $CondemnWithIronSkin == "1" Then
 		DoRightClick()
 	Endif
 endfunc

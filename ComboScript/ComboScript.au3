@@ -8,14 +8,13 @@ _Singleton("D3AntiIdle")
 ; Set the variables and keybindings
 ;------------------------------------------------------------------------------
 #include "ComboIncludes/StartingIncludes.au3"
+#include "ClassIncludes/ClassIncludes.au3"
 #include "ComboIncludes/ReadSettings.au3"
 ReadSettings()
 
 ;------------------------------------------------------------------------------
 ; Set Class Spam Types (holding down 3)
 ;------------------------------------------------------------------------------
-#include "ClassIncludes/ClassIncludes.au3"
-
 Global $SpamKeyPress = 33 ; Keyboard 3 (Not Numpad)
 Global $StopSpamKeyPress = 34; Keyboard 4 (Not Numpad)
 

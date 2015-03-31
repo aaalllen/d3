@@ -28,7 +28,11 @@ func ReadSettings()
 		Global $SecondRingCoords = IniReadSection($SettingsFile, "SecondRingCoords")
 	endif
 	
- endfunc
+	$CondemnWithIronSkin = IniRead($SettingsFile, "ClassConfig", "CondemnWithIronSkin", "1")
+	
+	;MsgBox(0, "$CondemnWithIronSkin", $CondemnWithIronSkin)
+	
+endfunc
  
  
 Func WriteDefaultIni()
