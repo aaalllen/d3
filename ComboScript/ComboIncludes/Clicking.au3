@@ -17,3 +17,12 @@ func DebugMousePosition()
 	$jPos = MouseGetPos()
 	MsgBox(0, "Mouse x,y:", $jPos[0] & "," & $jPos[1])
 endfunc
+
+func HoldLeftClick()
+	MouseDown("left")
+endfunc
+
+
+func ReleaseLeftClick()
+	MouseUp("left")
+endfunc

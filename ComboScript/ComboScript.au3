@@ -15,14 +15,17 @@ ReadSettings()
 ;------------------------------------------------------------------------------
 ; Set Class Spam Types (holding down 3)
 ;------------------------------------------------------------------------------
-Global $SpamKeyPress = 33 ; Keyboard 3 (Not Numpad)
-Global $StopSpamKeyPress = 34; Keyboard 4 (Not Numpad)
+Global $SpamKeyPress = 53; s -- 33 ; Keyboard 3 (Not Numpad)
+Global $StopSpamKeyPress = 44; d -- 34; Keyboard 4 (Not Numpad)
 
 ; find the first true play style
-Global $IsCondemnSader = true
-Global $IsPonySader = true
-Global $IsZdpsMonk = true
+Global $IsSnowballBarb = true
+Global $IsCondemnSader = false
+Global $IsPonySader = false
+Global $IsZdpsMonk = false
 Global $AutoSpam = false
+
+;HotKeySet("{F9}", "CheckMouseCoord")
 
 ;------------------------------------------------------------------------------
 ; Main loop - for keycodes check bottom of script
@@ -35,9 +38,14 @@ while 1
 		endif
 		
 		If NOT $Paused AND (_IsPressed($SpamKeyPress) Or $AutoSpam == true) Then
-			If $IsCondemnSader == true  Then				
+			If $IsSnowballBarb == true Then
 				$AutoSpam = true
-				DoCondemnSader()				
+				Send("{SPACE down}")
+				HoldLeftClick()
+				DoSnowballBarb()
+			ElseIf $IsCondemnSader == true  Then				
+				$AutoSpam = true
+				DoCondemnSader()		
 			ElseIf $IsPonySader == true Then
 				DoPonySader()	
 			ElseIf $IsZdpsMonk == true Then
@@ -47,6 +55,10 @@ while 1
 		
 		If NOT $Paused AND _IsPressed($StopSpamKeyPress) Then
 			$AutoSpam = false
+			If $IsSnowballBarb == true Then
+				ReleaseLeftClick()
+				Send("{SPACE up}")
+			EndIf
 		endif
 		
 	else ;when window is not active, disable all hotkeys
