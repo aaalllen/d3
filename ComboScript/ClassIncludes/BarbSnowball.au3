@@ -9,10 +9,16 @@ Global $SnowballIgnorePainButton = "{4}"
 Global $SnowballSpamKey = 20 ; spacebar
 
 Global $barbSnowballWarCryMillisecCD = 20000
-Global $barbSnowballWarcryBuffTimer = TimerInit()
+Global $barbSnowballWarcryBuffTimer = TimerInit() - 200000
 
 Global $barbSnowballBattleRageMillisecCD = 114000
-Global $barbSnowballBattleRageBuffTimer = TimerInit()
+Global $barbSnowballBattleRageBuffTimer = TimerInit() - 200000
+
+Global $barbSnowballIgnorePainMillisecCD = 9500
+Global $barbSnowballIgnorePainBuffTimer = TimerInit() - 200000
+
+Global $barbSnowballShoutMillisecCD = 4500
+Global $barbSnowballShoutBuffTimer = TimerInit() - 200000
 
 func DoSnowballBarb()
 	;check WarCry timer
@@ -30,11 +36,33 @@ func DoSnowballBarb()
 	EndIf
 	
 	;If _IsPressed($SnowballSpamKey) Then
-	If $AutoSpam == true Then
+	;If $AutoSpam == true Then
 		DoSnowballZerker()
-		DoSnowballShout()
-		DoSnowballIgnorePain()
-	EndIf
+				
+		;check IgnorePain timer
+		Local $ignorePainTimerDiff  =  TimerDiff($barbSnowballIgnorePainBuffTimer)	
+		If $ignorePainTimerDiff >= $barbSnowballIgnorePainMillisecCD Then
+			$barbSnowballIgnorePainBuffTimer = TimerInit()
+			DoSnowballIgnorePain()
+		EndIf
+		
+		;check Shout timer
+		Local $shoutTimerDiff  =  TimerDiff($barbSnowballShoutBuffTimer)	
+		If $shoutTimerDiff >= $barbSnowballShoutMillisecCD Then
+			$barbSnowballShoutBuffTimer = TimerInit()
+			DoSnowballShout()
+		EndIf
+	;EndIf
+endfunc
+
+func StartSnowballBarb()
+	Send("{SPACE down}")
+	HoldLeftClick()
+endfunc
+
+func EndSnowballBarb()
+	ReleaseLeftClick()
+	Send("{SPACE up}")
 endfunc
 
 func DoSnowballZerker()

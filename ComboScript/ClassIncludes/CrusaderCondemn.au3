@@ -3,7 +3,7 @@
 ;Condemnsader
 ;	LeftClick = zeal
 ;	RightClick = iron skin steed charge
-Global $CondemnWithIronSkin = "1"
+Global $CondemnWithIronSkin = "0"
 Global $CondemnSaderAkChamp = "{1}"
 Global $CondemnSaderCondemn = "{2}"
 Global $CondemnSaderLaw = "{3}"

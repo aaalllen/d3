@@ -26,3 +26,12 @@ endfunc
 func ReleaseLeftClick()
 	MouseUp("left")
 endfunc
+
+func HoldRightClick()
+	MouseDown("right")
+endfunc
+
+
+func ReleaseRightClick()
+	MouseUp("right")
+endfunc

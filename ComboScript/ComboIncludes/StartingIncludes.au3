@@ -1,7 +1,7 @@
 ;------------------------------------------------------------------------------
 ; Globals - These are defaults but will get overwritten by the settings file
 ;------------------------------------------------------------------------------
-Global $baseTickMillisecond = 150
+Global $baseTickMillisecond = 250
 Global $SwitchGearButton = "{F1}"
 Global $RequestInviteButton = "{F2}" ; no longer need this, so disabled
 Global $AntiIdleButton = "{F3}"
