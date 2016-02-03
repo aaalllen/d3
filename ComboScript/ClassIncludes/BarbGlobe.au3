@@ -11,7 +11,8 @@ Global $BarbGlobeWarCryDuration = 20000
 Global $BarbGlobeIgnorePainDuration = 11000
 Global $BarbGlobeWarCryMillisecCD = $BarbGlobeWarCryDuration - 500
 Global $BarbGlobeIgnorePainMillisecCD = $BarbGlobeIgnorePainDuration - 500
-BarbGlobeResetTimers()
+Global $BarbGlobeWarcryBuffTimer = TimerInit() - ($BarbGlobeWarCryDuration + 1000)
+Global $BarbGlobeIgnorePainBuffTimer = TimerInit() - 9500
 
 func DoBarbGlobe()
 	;check WarCry timer

@@ -27,8 +27,8 @@ Global $IsZdpsMonk = false
 Global $IsZdpsWD = false
 Global $IsDuoMonk = false
 Global $IsWizDBSuperNova = false
-Global $IsGlobeBarb = false
-Global $IsGlobeWWBarb = true
+Global $IsSupportHotaBarb = true
+Global $IsSupportWWBarb = false
 
 
 ;HotKeySet("{F9}", "CheckMouseCoord")
@@ -66,7 +66,7 @@ while 1
 				$AutoSpam = true
 				;StartWizDBSuperNova()
 				DoWizDBSuperNova()
-			ElseIf $IsGlobeBarb == true Then
+			ElseIf $IsSupportHotaBarb == true Then
 				$AutoSpam = true
 				StartBarbGlobe()
 				DoBarbGlobe()
@@ -83,7 +83,7 @@ while 1
 				EndSnowballBarb()
 			ElseIf $IsWizDBSuperNova == true Then
 				;EndWizDBSuperNova()
-			ElseIf $IsGlobeBarb == true Then
+			ElseIf $IsSupportHotaBarb == true Then
 				EndBarbGlobe()
 			ElseIf $IsSupportWWBarb == true Then
 				EndBarbGlobeWW()

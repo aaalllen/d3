@@ -9,9 +9,15 @@ Global $BarbGlobeWWWarCryButton = "{4}"
 ; Timers
 Global $BarbGlobeWWWarCryDuration = 20000
 Global $BarbGlobeWWIgnorePainDuration = 11000
+Global $BarbGlobeWWFalterDuration = 5000
+
 Global $BarbGlobeWWWarCryMillisecCD = $BarbGlobeWWWarCryDuration - 500
 Global $BarbGlobeWWIgnorePainMillisecCD = $BarbGlobeWWIgnorePainDuration - 500
-BarbGlobeWWResetTimers()
+Global $BarbGlobeWWFalterMillisecCD = $BarbGlobeWWFalterDuration - 500
+
+Global $BarbGlobeWWWarcryBuffTimer = TimerInit() - ($BarbGlobeWWWarCryDuration + 100000)
+Global $BarbGlobeWWIgnorePainBuffTimer = TimerInit() - ($BarbGlobeWWIgnorePainDuration + 100000)
+Global $BarbGlobeWWFalterBuffTimer = TimerInit() - ($BarbGlobeWWFalterDuration + 100000)
 
 func DoBarbGlobeWW()
 	;check WarCry timer
@@ -28,7 +34,14 @@ func DoBarbGlobeWW()
 		BarbGlobeWWIgnorePain()
 	EndIf
 	
-	BarbGlobeWWFalter()
+	;check Falter timer
+	Local $falterTimerDiff  =  TimerDiff($BarbGlobeWWFalterBuffTimer)	
+	If $falterTimerDiff >= $BarbGlobeWWFalterMillisecCD Then
+		$BarbGlobeWWFalterBuffTimer = TimerInit()
+		BarbGlobeWWFalter()
+	EndIf
+	
+	BarbGlobeGroundStomp()
 endfunc
 
 func StartBarbGlobeWW()
@@ -44,8 +57,9 @@ func EndBarbGlobeWW()
 endfunc
 
 func BarbGlobeWWResetTimers()
-	$BarbGlobeWWWarcryBuffTimer = TimerInit() - ($BarbGlobeWWWarCryDuration + 1000)
-	$BarbGlobeWWIgnorePainBuffTimer = TimerInit() - 9500
+	$BarbGlobeWWWarcryBuffTimer = TimerInit() - ($BarbGlobeWWWarCryDuration + 100000)
+	$BarbGlobeWWIgnorePainBuffTimer = TimerInit() - ($BarbGlobeWWIgnorePainDuration + 100000)
+	$BarbGlobeWWFalterBuffTimer = TimerInit() - ($BarbGlobeWWFalterDuration + 100000)
 endfunc
 
 func BarbGlobeWWWarCry()
@@ -58,4 +72,8 @@ endfunc
 
 func BarbGlobeWWFalter()
 	ControlSend($win_title, "", "", $BarbGlobeWWFalterButton)
+endfunc
+
+func BarbGlobeGroundStomp()
+	DoRightClick()
 endfunc
