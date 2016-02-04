@@ -27,8 +27,8 @@ Global $IsZdpsMonk = false
 Global $IsZdpsWD = false
 Global $IsDuoMonk = false
 Global $IsWizDBSuperNova = false
-Global $IsSupportHotaBarb = true
-Global $IsSupportWWBarb = false
+Global $IsSupportHotaBarb = false
+Global $IsSupportWWBarb = true
 
 
 ;HotKeySet("{F9}", "CheckMouseCoord")

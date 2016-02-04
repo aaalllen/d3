@@ -1,10 +1,11 @@
 #include-once
 
 ; LeftClick = WW
-; RightClick = Ground Stomp
+; RightClick = War Cry
 Global $BarbGlobeWWIgnorePainButton = "{2}"
 Global $BarbGlobeWWFalterButton = "{3}"
-Global $BarbGlobeWWWarCryButton = "{4}"
+;Global $BarbGlobeWWWarCryButton = "{4}"
+Global $BarbGlobeWWStompButton = "{4}"
 
 ; Timers
 Global $BarbGlobeWWWarCryDuration = 20000
@@ -41,7 +42,7 @@ func DoBarbGlobeWW()
 		BarbGlobeWWFalter()
 	EndIf
 	
-	BarbGlobeGroundStomp()
+	;BarbGlobeGroundStomp()
 endfunc
 
 func StartBarbGlobeWW()
@@ -62,10 +63,6 @@ func BarbGlobeWWResetTimers()
 	$BarbGlobeWWFalterBuffTimer = TimerInit() - ($BarbGlobeWWFalterDuration + 100000)
 endfunc
 
-func BarbGlobeWWWarCry()
-	ControlSend($win_title, "", "", $BarbGlobeWWWarCryButton)
-endfunc
-
 func BarbGlobeWWIgnorePain()
 	ControlSend($win_title, "", "", $BarbGlobeWWIgnorePainButton)
 endfunc
@@ -75,5 +72,11 @@ func BarbGlobeWWFalter()
 endfunc
 
 func BarbGlobeGroundStomp()
+	;DoRightClick()
+	ControlSend($win_title, "", "", $BarbGlobeWWStompButton)
+endfunc
+
+func BarbGlobeWWWarCry()
+	;ControlSend($win_title, "", "", $BarbGlobeWWWarCryButton)
 	DoRightClick()
 endfunc
