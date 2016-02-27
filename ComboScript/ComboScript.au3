@@ -5,14 +5,6 @@
 _Singleton("D3AntiIdle")
 
 ;------------------------------------------------------------------------------
-; Set the variables and keybindings
-;------------------------------------------------------------------------------
-#include "ComboIncludes/StartingIncludes.au3"
-#include "ClassIncludes/ClassIncludes.au3"
-#include "ComboIncludes/ReadSettings.au3"
-ReadSettings()
-
-;------------------------------------------------------------------------------
 ; Set Class Spam Types (holding down 3)
 ;------------------------------------------------------------------------------
 Global $SpamKeyPress = 53; s -- 33 ; Keyboard 3 (Not Numpad)
@@ -28,8 +20,16 @@ Global $IsZdpsWD = false
 Global $IsDuoMonk = false
 Global $IsWizDBSuperNova = false
 Global $IsSupportHotaBarb = false
-Global $IsSupportWWBarb = true
+Global $IsSupportWWBarb = false
+Global $IsLoNCrusader = true
 
+;------------------------------------------------------------------------------
+; Set the variables and keybindings
+;------------------------------------------------------------------------------
+#include "ClassIncludes/ClassIncludes.au3"
+#include "ComboIncludes/StartingIncludes.au3"
+#include "ComboIncludes/ReadSettings.au3"
+ReadSettings()
 
 ;HotKeySet("{F9}", "CheckMouseCoord")
 
@@ -74,6 +74,10 @@ while 1
 				$AutoSpam = true
 				StartBarbGlobeWW()
 				DoBarbGlobeWW()
+			ElseIf $IsLoNCrusader == true Then
+				;$AutoSpam = true
+				;StartCrusaderLoN()
+				;DoCrusaderLoN()
 			EndIf			
 		endif
 		
@@ -87,6 +91,8 @@ while 1
 				EndBarbGlobe()
 			ElseIf $IsSupportWWBarb == true Then
 				EndBarbGlobeWW()
+			ElseIf $IsLoNCrusader == true Then
+				;EndCrusaderLoN()
 			EndIf	
 		endif
 		

@@ -10,7 +10,7 @@ Global $PauseButton = "{F5}"
 Global $SettingsFile = IniRead("LocalSetup.ini", "FileConfig", "SettingsFile", "DefaultSettings.ini")
 
 ;Don't mess with values below
-Global $title = "Diablo III - Wizard Combo Script"						
+Global $title = "Diablo III - Combo Script"						
 Global $win_title = "Diablo III"; English
 Global $Paused = false
 Global $switchingGear = false
@@ -36,7 +36,10 @@ func SetHotkeys()
 	HotKeySet($SwitchGearButton, "SwitchGear")
 	HotKeySet($AntiIdleButton, "AntiIdle")
 	;HotKeySet($RequestInviteButton, "RequestInvite")
-	HotKeySet($ReadSettingsButton, "ReadSettings")	
+	HotKeySet($ReadSettingsButton, "ReadSettings")
+	If $IsLoNCrusader == true Then
+		HotKeySet($CrusaderLoNSteedChargeButton, "DoCrusaderLoN")
+	EndIf
 endfunc
 
 func ClearHotkeys()
@@ -45,4 +48,7 @@ func ClearHotkeys()
 	;HotKeySet($RequestInviteButton)
 	ChatToggleDisableHotKeys()
 	HotKeySet($ReadSettingsButton)
+	If $IsLoNCrusader == true Then
+		HotKeySet($CrusaderLoNSteedChargeButton)
+	EndIf
 endfunc

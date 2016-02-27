@@ -7,3 +7,4 @@
 #include "WizSuperNova.au3"
 #include "BarbGlobe.au3"
 #include "BarbGlobeWW.au3"
+#include "CrusaderLoN.au3"

@@ -23,6 +23,9 @@ func ChatToggleEnableHotKeys()
 	HotKeySet($EnterButton, "EnterTogglePause")
 	HotKeySet($ReplyButton, "ReplyTogglePause")
 	HotKeySet($MapButton, "MapTogglePause")
+	If $IsLoNCrusader == true Then
+		HotKeySet($CrusaderLoNSteedChargeButton, "DoCrusaderLoN")
+	EndIf
 endfunc
 
 func ChatToggleDisableHotKeys()
@@ -34,6 +37,9 @@ func ChatToggleDisableHotKeys()
 	HotKeySet($EnterButton)
 	HotKeySet($ReplyButton)
 	HotKeySet($MapButton)
+	If $IsLoNCrusader == true Then
+		HotKeySet($CrusaderLoNSteedChargeButton)
+	EndIf
 endfunc
  
  
@@ -69,6 +75,9 @@ func TypingPause()
 			HotKeySet($PauseButton)
 			HotKeySet($ReplyButton)
 			HotKeySet($ChatEscButton, "ClearChatWithEsc")
+			If $IsLoNCrusader == true Then
+				HotKeySet($CrusaderLoNSteedChargeButton)
+			EndIf
 			
 			ToolTip($title & ' is paused for chat. Hit ' & $EnterButton & ' to resume.',0,0)
 		wend
@@ -76,6 +85,9 @@ func TypingPause()
 		HotKeySet($PauseButton, "TogglePause")
 		HotKeySet($ReplyButton, "ReplyTogglePause")
 		HotKeySet($ChatEscButton)
+		If $IsLoNCrusader == true Then
+			HotKeySet($CrusaderLoNSteedChargeButton, "DoCrusaderLoN")
+		EndIf
 		ToolTip("")
 	endif
 endfunc

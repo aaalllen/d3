@@ -8,11 +8,11 @@ Global $BarbGlobeWarCryButton = "{4}"
 
 ; Timers
 Global $BarbGlobeWarCryDuration = 20000
-Global $BarbGlobeIgnorePainDuration = 11000
+Global $BarbGlobeIgnorePainDuration = 10000
 Global $BarbGlobeWarCryMillisecCD = $BarbGlobeWarCryDuration - 500
 Global $BarbGlobeIgnorePainMillisecCD = $BarbGlobeIgnorePainDuration - 500
 Global $BarbGlobeWarcryBuffTimer = TimerInit() - ($BarbGlobeWarCryDuration + 1000)
-Global $BarbGlobeIgnorePainBuffTimer = TimerInit() - 9500
+Global $BarbGlobeIgnorePainBuffTimer = TimerInit() - ($BarbGlobeIgnorePainDuration + 1000)
 
 func DoBarbGlobe()
 	;check WarCry timer
@@ -41,7 +41,7 @@ endfunc
 
 func BarbGlobeResetTimers()
 	$BarbGlobeWarcryBuffTimer = TimerInit() - ($BarbGlobeWarCryDuration + 1000)
-	$BarbGlobeIgnorePainBuffTimer = TimerInit() - 9500
+	$BarbGlobeIgnorePainBuffTimer = TimerInit() - ($BarbGlobeIgnorePainDuration + 1000)
 endfunc
 
 func BarbGlobeWarCry()
