@@ -23,9 +23,31 @@ func DoCrusaderLoN()
 		
 		CrusaderLoNIronSkin()
 		CrusaderLoNAKChampion()
-		;sleep(200)
+								
+		CrusaderLoNRightClick()
+		CrusaderLoNBombardment()
 		
-		;CrusaderLoNLeftClick()						
+		CrusaderLoNLeftClick()
+
+		CrusaderLoNIronSkin()
+		CrusaderLoNAKChampion()
+								
+		CrusaderLoNRightClick()
+		CrusaderLoNBombardment()
+		
+		CrusaderLoNLeftClick()	
+		
+		CrusaderLoNIronSkin()
+		CrusaderLoNAKChampion()
+								
+		CrusaderLoNRightClick()
+		CrusaderLoNBombardment()
+		
+		CrusaderLoNLeftClick()	
+		
+		CrusaderLoNIronSkin()
+		CrusaderLoNAKChampion()
+								
 		CrusaderLoNRightClick()
 		CrusaderLoNBombardment()
 		
